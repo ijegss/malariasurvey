@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaria Musculoskeletal Symptoms Study</title>
+
+  <style>
+    body{
+      margin:0;
+      padding:20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#e8f4ff;
+      color:#222;
+    }
+
+    .container{
+      max-width:950px;
+      margin:auto;
+      background:#fff;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1{
+      text-align:center;
+      color:#004c80;
+      margin-bottom:5px;
+    }
+
+    h2{
+      background:#d9efff;
+      padding:10px;
+      border-radius:8px;
+      color:#003b63;
+      margin-top:35px;
+    }
+
+    h3{
+      color:#005b96;
+      margin-top:25px;
+    }
+
+    p{
+      line-height:1.6;
+    }
+
+    label{
+      display:block;
+      margin-top:18px;
+      font-weight:bold;
+    }
+
+    input[type=text],
+    input[type=number],
+    input[type=date],
+    textarea,
+    select{
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      margin-top:5px;
+      box-sizing:border-box;
+    }
+
+    textarea{
+      min-height:90px;
+    }
+
+    .options{
+      margin-top:8px;
+      margin-left:10px;
+      font-weight:normal;
+    }
+
+    .options label{
+      font-weight:normal;
+      margin-top:5px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+
+    table, th, td{
+      border:1px solid #ccc;
+    }
+
+    th, td{
+      padding:10px;
+      text-align:center;
+    }
+
+    button{
+      background:#0077cc;
+      color:white;
+      border:none;
+      padding:14px 25px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+      margin-top:30px;
+      width:100%;
+    }
+
+    button:hover{
+      background:#005fa3;
+    }
+
+    #statusMsg{
+      margin-top:20px;
+      font-weight:bold;
+      text-align:center;
+    }
+
+    @media(max-width:600px){
+      .container{
+        padding:15px;
+      }
+
+      table{
+        font-size:12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Beyond Fever</h1>
+<p><strong>Study Title:</strong> Evaluating Musculoskeletal Symptoms as a Diagnostic Indicator of Malaria in Older Adults in Nigeria</p>
+
+<h2>SECTION A: INTRODUCTION AND CONSENT</h2>
+
+<p>
+You are invited to participate in a research study examining the relationship between musculoskeletal symptoms and malaria among older adults in Nigeria.
+Your responses will be kept confidential and used strictly for academic purposes.
+Participation is voluntary.
+</p>
+
+<form id="surveyForm">
+
+<label>Do you consent to participate in this study?</label>
+<div class="options">
+  <label><input type="radio" name="Consent" value="Yes" required> Yes</label>
+  <label><input type="radio" name="Consent" value="No"> No</label>
+</div>
+
+<label>Signature/Thumbprint (Your Full name can serve)</label>
+<input type="text" name="Signature">
+
+<label>Date</label>
+<input type="date" name="Date">
+
+<!-- SECTION B -->
+
+<h2>SECTION B: SOCIO-DEMOGRAPHIC INFORMATION</h2>
+
+<label>1. Age</label>
+<input type="number" name="Age">
+
+<label>2. Sex</label>
+<div class="options">
+  <label><input type="radio" name="Sex" value="Male"> Male</label>
+  <label><input type="radio" name="Sex" value="Female"> Female</label>
+</div>
+
+<label>3. Marital Status</label>
+<div class="options">
+  <label><input type="radio" name="MaritalStatus" value="Single"> Single</label>
+  <label><input type="radio" name="MaritalStatus" value="Married"> Married</label>
+  <label><input type="radio" name="MaritalStatus" value="Widowed"> Widowed</label>
+  <label><input type="radio" name="MaritalStatus" value="Divorced/Separated"> Divorced/Separated</label>
+</div>
+
+<label>4. Educational Level</label>
+<div class="options">
+  <label><input type="radio" name="EducationLevel" value="No formal education"> No formal education</label>
+  <label><input type="radio" name="EducationLevel" value="Primary"> Primary</label>
+  <label><input type="radio" name="EducationLevel" value="Secondary"> Secondary</label>
+  <label><input type="radio" name="EducationLevel" value="Tertiary"> Tertiary</label>
+</div>
+
+<label>5. Occupation</label>
+<input type="text" name="Occupation">
+
+<label>6. Place of Residence</label>
+<div class="options">
+  <label><input type="radio" name="Residence" value="Urban"> Urban</label>
+  <label><input type="radio" name="Residence" value="Rural"> Rural</label>
+</div>
+
+<label>7. State of Residence</label>
+<input type="text" name="StateResidence">
+
+<label>8. Ethnic Group</label>
+<input type="text" name="EthnicGroup">
+
+<label>9. Monthly Income Range</label>
+<div class="options">
+  <label><input type="radio" name="IncomeRange" value="Less than ₦70,000"> Less than ₦70,000</label>
+  <label><input type="radio" name="IncomeRange" value="₦70,000–₦150,000"> ₦70,000–₦150,000</label>
+  <label><input type="radio" name="IncomeRange" value="₦151,000–₦250,000"> ₦151,000–₦250,000</label>
+  <label><input type="radio" name="IncomeRange" value="Above ₦250,000"> Above ₦250,000</label>
+</div>
+
+<!-- SECTION C -->
+
+<h2>SECTION C: MEDICAL HISTORY</h2>
+
+<label>10. Diagnosed with malaria in the past 12 months?</label>
+<div class="options">
+  <label><input type="radio" name="MalariaPast12Months" value="Yes"> Yes</label>
+  <label><input type="radio" name="MalariaPast12Months" value="No"> No</label>
+</div>
+
+<label>11. If yes, how many times?</label>
+<div class="options">
+  <label><input type="radio" name="MalariaFrequency" value="Once"> Once</label>
+  <label><input type="radio" name="MalariaFrequency" value="2–3 times"> 2–3 times</label>
+  <label><input type="radio" name="MalariaFrequency" value="More than 3 times"> More than 3 times</label>
+</div>
+
+<label>12. Was the diagnosis confirmed with a laboratory test?</label>
+<div class="options">
+  <label><input type="radio" name="LabConfirmed" value="Yes"> Yes</label>
+  <label><input type="radio" name="LabConfirmed" value="No"> No</label>
+  <label><input type="radio" name="LabConfirmed" value="Not sure"> Not sure</label>
+</div>
+
+<label>13. Chronic Medical Conditions (Tick all that apply)</label>
+<div class="options">
+  <label><input type="checkbox" name="ChronicConditions" value="Hypertension"> Hypertension</label>
+  <label><input type="checkbox" name="ChronicConditions" value="Diabetes"> Diabetes</label>
+  <label><input type="checkbox" name="ChronicConditions" value="Arthritis"> Arthritis</label>
+  <label><input type="checkbox" name="ChronicConditions" value="Osteoporosis"> Osteoporosis</label>
+  <label><input type="checkbox" name="ChronicConditions" value="Kidney disease"> Kidney disease</label>
+  <label><input type="checkbox" name="ChronicConditions" value="None"> None</label>
+</div>
+
+<label>Others</label>
+<input type="text" name="OtherConditions">
+
+<label>14. Currently taking regular medications?</label>
+<div class="options">
+  <label><input type="radio" name="RegularMedication" value="Yes"> Yes</label>
+  <label><input type="radio" name="RegularMedication" value="No"> No</label>
+</div>
+
+<label>15. Experienced recent infection apart from malaria?</label>
+<div class="options">
+  <label><input type="radio" name="RecentInfection" value="Yes"> Yes</label>
+  <label><input type="radio" name="RecentInfection" value="No"> No</label>
+</div>
+
+<!-- SECTION D -->
+
+<h2>SECTION D: MALARIA-RELATED SYMPTOMS</h2>
+
+<h3>A. Fever Symptoms</h3>
+
+<label>16. Experience fever?</label>
+<div class="options">
+  <label><input type="radio" name="Fever" value="Yes"> Yes</label>
+  <label><input type="radio" name="Fever" value="No"> No</label>
+</div>
+
+<label>17. Fever severity</label>
+<div class="options">
+  <label><input type="radio" name="FeverSeverity" value="Mild"> Mild</label>
+  <label><input type="radio" name="FeverSeverity" value="Moderate"> Moderate</label>
+  <label><input type="radio" name="FeverSeverity" value="Severe"> Severe</label>
+</div>
+
+<label>18. Experience chills or shivering?</label>
+<div class="options">
+  <label><input type="radio" name="Chills" value="Yes"> Yes</label>
+  <label><input type="radio" name="Chills" value="No"> No</label>
+</div>
+
+<label>19. Experience sweating episodes?</label>
+<div class="options">
+  <label><input type="radio" name="Sweating" value="Yes"> Yes</label>
+  <label><input type="radio" name="Sweating" value="No"> No</label>
+</div>
+
+<h3>B. Musculoskeletal Symptoms</h3>
+
+<label>20. Experience muscle pain (myalgia)?</label>
+<div class="options">
+  <label><input type="radio" name="MusclePain" value="Yes"> Yes</label>
+  <label><input type="radio" name="MusclePain" value="No"> No</label>
+</div>
+
+<label>21. Pain location</label>
+<div class="options">
+  <label><input type="checkbox" name="PainLocation" value="Neck"> Neck</label>
+  <label><input type="checkbox" name="PainLocation" value="Shoulder"> Shoulder</label>
+  <label><input type="checkbox" name="PainLocation" value="Back"> Back</label>
+  <label><input type="checkbox" name="PainLocation" value="Arms"> Arms</label>
+  <label><input type="checkbox" name="PainLocation" value="Legs"> Legs</label>
+  <label><input type="checkbox" name="PainLocation" value="Generalized body pain"> Generalized body pain</label>
+</div>
+
+<label>22. Experience joint pain?</label>
+<div class="options">
+  <label><input type="radio" name="JointPain" value="Yes"> Yes</label>
+  <label><input type="radio" name="JointPain" value="No"> No</label>
+</div>
+
+<label>23. Severity of joint pain</label>
+<div class="options">
+  <label><input type="radio" name="JointPainSeverity" value="Mild"> Mild</label>
+  <label><input type="radio" name="JointPainSeverity" value="Moderate"> Moderate</label>
+  <label><input type="radio" name="JointPainSeverity" value="Severe"> Severe</label>
+</div>
+
+<label>24. Experience muscle weakness?</label>
+<div class="options">
+  <label><input type="radio" name="MuscleWeakness" value="Yes"> Yes</label>
+  <label><input type="radio" name="MuscleWeakness" value="No"> No</label>
+</div>
+
+<label>25. Did symptoms appear before fever?</label>
+<div class="options">
+  <label><input type="radio" name="SymptomsBeforeFever" value="Yes"> Yes</label>
+  <label><input type="radio" name="SymptomsBeforeFever" value="No"> No</label>
+  <label><input type="radio" name="SymptomsBeforeFever" value="No fever experienced"> No fever experienced</label>
+</div>
+
+<label>26. Duration of symptoms</label>
+<div class="options">
+  <label><input type="radio" name="SymptomDuration" value="1–3 days"> 1–3 days</label>
+  <label><input type="radio" name="SymptomDuration" value="4–7 days"> 4–7 days</label>
+  <label><input type="radio" name="SymptomDuration" value="More than 7 days"> More than 7 days</label>
+</div>
+
+<label>27. Did symptoms interfere with daily activities?</label>
+<div class="options">
+  <label><input type="radio" name="InterfereActivities" value="Yes"> Yes</label>
+  <label><input type="radio" name="InterfereActivities" value="No"> No</label>
+</div>
+
+<label>28. Seek medical attention because of body/joint pains before suspecting malaria?</label>
+<div class="options">
+  <label><input type="radio" name="SeekMedicalAttention" value="Yes"> Yes</label>
+  <label><input type="radio" name="SeekMedicalAttention" value="No"> No</label>
+</div>
+
+<!-- SECTION E -->
+
+<h2>SECTION E: DIAGNOSTIC AND TREATMENT HISTORY</h2>
+
+<label>29. What prompted you to seek treatment?</label>
+<div class="options">
+  <label><input type="checkbox" name="TreatmentPrompt" value="Fever"> Fever</label>
+  <label><input type="checkbox" name="TreatmentPrompt" value="Body pain"> Body pain</label>
+  <label><input type="checkbox" name="TreatmentPrompt" value="Joint pain"> Joint pain</label>
+  <label><input type="checkbox" name="TreatmentPrompt" value="Weakness/fatigue"> Weakness/fatigue</label>
+  <label><input type="checkbox" name="TreatmentPrompt" value="Headache"> Headache</label>
+</div>
+
+<label>Others</label>
+<input type="text" name="TreatmentPromptOthers">
+
+<label>30. Where did you first seek treatment?</label>
+<div class="options">
+  <label><input type="radio" name="FirstTreatmentPlace" value="Hospital"> Hospital</label>
+  <label><input type="radio" name="FirstTreatmentPlace" value="Clinic"> Clinic</label>
+  <label><input type="radio" name="FirstTreatmentPlace" value="Pharmacy"> Pharmacy</label>
+  <label><input type="radio" name="FirstTreatmentPlace" value="Traditional healer"> Traditional healer</label>
+  <label><input type="radio" name="FirstTreatmentPlace" value="Self-medication"> Self-medication</label>
+</div>
+
+<label>31. Was malaria RDT performed?</label>
+<div class="options">
+  <label><input type="radio" name="RDTPerformed" value="Yes"> Yes</label>
+  <label><input type="radio" name="RDTPerformed" value="No"> No</label>
+</div>
+
+<label>32. Was microscopy used?</label>
+<div class="options">
+  <label><input type="radio" name="MicroscopyUsed" value="Yes"> Yes</label>
+  <label><input type="radio" name="MicroscopyUsed" value="No"> No</label>
+</div>
+
+<label>33. Treatment given</label>
+<textarea name="TreatmentGiven"></textarea>
+
+<label>34. Did symptoms improve after antimalarial treatment?</label>
+<div class="options">
+  <label><input type="radio" name="SymptomsImprove" value="Yes"> Yes</label>
+  <label><input type="radio" name="SymptomsImprove" value="No"> No</label>
+</div>
+
+<label>35. Which symptom improved first?</label>
+<div class="options">
+  <label><input type="radio" name="FirstImprovedSymptom" value="Fever"> Fever</label>
+  <label><input type="radio" name="FirstImprovedSymptom" value="Muscle pain"> Muscle pain</label>
+  <label><input type="radio" name="FirstImprovedSymptom" value="Joint pain"> Joint pain</label>
+  <label><input type="radio" name="FirstImprovedSymptom" value="Weakness"> Weakness</label>
+</div>
+
+<label>Others</label>
+<input type="text" name="FirstImprovedOthers">
+
+<!-- SECTION F -->
+
+<h2>SECTION F: PERCEPTION AND AWARENESS</h2>
+
+<label>36. Did you know malaria could present with muscle or joint pain?</label>
+<div class="options">
+  <label><input type="radio" name="KnowMuscleJointPain" value="Yes"> Yes</label>
+  <label><input type="radio" name="KnowMuscleJointPain" value="No"> No</label>
+</div>
+
+<label>37. Symptom most associated with malaria</label>
+<div class="options">
+  <label><input type="radio" name="AssociatedSymptom" value="Fever"> Fever</label>
+  <label><input type="radio" name="AssociatedSymptom" value="Body pain"> Body pain</label>
+  <label><input type="radio" name="AssociatedSymptom" value="Weakness"> Weakness</label>
+  <label><input type="radio" name="AssociatedSymptom" value="Headache"> Headache</label>
+  <label><input type="radio" name="AssociatedSymptom" value="Chills"> Chills</label>
+</div>
+
+<label>38. Can severe body pain indicate malaria even without fever?</label>
+<div class="options">
+  <label><input type="radio" name="BodyPainWithoutFever" value="Yes"> Yes</label>
+  <label><input type="radio" name="BodyPainWithoutFever" value="No"> No</label>
+  <label><input type="radio" name="BodyPainWithoutFever" value="Not sure"> Not sure</label>
+</div>
+
+<label>39. Have healthcare workers explained atypical malaria symptoms?</label>
+<div class="options">
+  <label><input type="radio" name="HealthcareWorkersExplained" value="Yes"> Yes</label>
+  <label><input type="radio" name="HealthcareWorkersExplained" value="No"> No</label>
+</div>
+
+<!-- SECTION G -->
+
+<h2>SECTION G: CLINICAL ASSESSMENT (FOR CLINICIAN’S USE ONLY)</h2>
+
+<label>40. Temperature (°C)</label>
+<input type="text" name="Temperature">
+
+<label>41. Malaria RDT Test Result</label>
+<div class="options">
+  <label><input type="radio" name="RDTResult" value="Positive"> Positive</label>
+  <label><input type="radio" name="RDTResult" value="Negative"> Negative</label>
+</div>
+
+<label>42. Parasite Density</label>
+<input type="text" name="ParasiteDensity">
+
+<label>43. Presence of Musculoskeletal Symptoms</label>
+<div class="options">
+  <label><input type="radio" name="PresenceMusculoskeletal" value="Yes"> Yes</label>
+  <label><input type="radio" name="PresenceMusculoskeletal" value="No"> No</label>
+</div>
+
+<label>44. Type of Symptoms Observed</label>
+<div class="options">
+  <label><input type="checkbox" name="ObservedSymptoms" value="Myalgia"> Myalgia</label>
+  <label><input type="checkbox" name="ObservedSymptoms" value="Arthralgia"> Arthralgia</label>
+  <label><input type="checkbox" name="ObservedSymptoms" value="Muscle weakness"> Muscle weakness</label>
+  <label><input type="checkbox" name="ObservedSymptoms" value="Reduced mobility"> Reduced mobility</label>
+</div>
+
+<label>45. Final Clinical Diagnosis</label>
+<textarea name="FinalDiagnosis"></textarea>
+
+<!-- LIKERT -->
+
+<h2>LIKERT SCALE: SYMPTOM SEVERITY</h2>
+
+<table>
+  <tr>
+    <th>Symptom</th>
+    <th>None</th>
+    <th>Mild</th>
+    <th>Moderate</th>
+    <th>Severe</th>
+  </tr>
+
+  <tr>
+    <td>Muscle Pain</td>
+    <td><input type="radio" name="LikertMusclePain" value="None"></td>
+    <td><input type="radio" name="LikertMusclePain" value="Mild"></td>
+    <td><input type="radio" name="LikertMusclePain" value="Moderate"></td>
+    <td><input type="radio" name="LikertMusclePain" value="Severe"></td>
+  </tr>
+
+  <tr>
+    <td>Joint Pain</td>
+    <td><input type="radio" name="LikertJointPain" value="None"></td>
+    <td><input type="radio" name="LikertJointPain" value="Mild"></td>
+    <td><input type="radio" name="LikertJointPain" value="Moderate"></td>
+    <td><input type="radio" name="LikertJointPain" value="Severe"></td>
+  </tr>
+
+  <tr>
+    <td>Muscle Weakness</td>
+    <td><input type="radio" name="LikertWeakness" value="None"></td>
+    <td><input type="radio" name="LikertWeakness" value="Mild"></td>
+    <td><input type="radio" name="LikertWeakness" value="Moderate"></td>
+    <td><input type="radio" name="LikertWeakness" value="Severe"></td>
+  </tr>
+
+  <tr>
+    <td>Fatigue</td>
+    <td><input type="radio" name="LikertFatigue" value="None"></td>
+    <td><input type="radio" name="LikertFatigue" value="Mild"></td>
+    <td><input type="radio" name="LikertFatigue" value="Moderate"></td>
+    <td><input type="radio" name="LikertFatigue" value="Severe"></td>
+  </tr>
+
+  <tr>
+    <td>Fever</td>
+    <td><input type="radio" name="LikertFever" value="None"></td>
+    <td><input type="radio" name="LikertFever" value="Mild"></td>
+    <td><input type="radio" name="LikertFever" value="Moderate"></td>
+    <td><input type="radio" name="LikertFever" value="Severe"></td>
+  </tr>
+</table>
+
+<button type="submit">Submit Questionnaire</button>
+
+<p id="statusMsg"></p>
+
+</form>
+
+</div>
+
+<script>
+
+const form = document.getElementById("surveyForm");
+
+form.addEventListener("submit", async function(e){
+
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  const json = {};
+
+  formData.forEach((value, key) => {
+
+    if(json[key]){
+      if(!Array.isArray(json[key])){
+        json[key] = [json[key]];
+      }
+      json[key].push(value);
+    }else{
+      json[key] = value;
+    }
+
+  });
+
+  document.getElementById("statusMsg").innerHTML = "Submitting...";
+
+  try{
+
+    const response = await fetch("https://script.google.com/macros/s/AKfycbyDfB993yeZ1NxK-O02C_Wz-E_FZ3-ADbxRpB0-35blMZhpTmJf8D2-0d3rIpA2yg-tuw/exec", {
+      method: "POST",
+      body: JSON.stringify(json)
+    });
+
+    const result = await response.json();
+
+    if(result.result === "success"){
+      document.getElementById("statusMsg").innerHTML =
+      "✅ Questionnaire submitted successfully!";
+      form.reset();
+    }else{
+      document.getElementById("statusMsg").innerHTML =
+      "❌ " + result.message;
+    }
+
+  }catch(err){
+
+    document.getElementById("statusMsg").innerHTML =
+    "⚠️ Submission failed.";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
