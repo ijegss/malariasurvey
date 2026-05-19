@@ -573,11 +573,11 @@ form.addEventListener("submit", async function(e){
 
   try {
 
-    const response = await fetch(
+    await fetch(
       "https://script.google.com/macros/s/AKfycbzTa_XNKWT8wUawzDnn4GVNvOdSZ8KjPz-AanP1sqIH29WDwxxmS5x2iq1t4LpXVsDe/exec",
       {
         method: "POST",
-        mode: "cors",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json"
         },
@@ -585,31 +585,19 @@ form.addEventListener("submit", async function(e){
       }
     );
 
-    const result = await response.json();
+    statusMsg.innerHTML =
+      "✅ Questionnaire submitted successfully!";
 
-    if(result.result === "success"){
+    statusMsg.style.color = "green";
 
-      statusMsg.innerHTML =
-      "✅ Submitted successfully!";
-
-      statusMsg.style.color = "green";
-
-      form.reset();
-
-    } else {
-
-      statusMsg.innerHTML =
-      "❌ " + result.message;
-
-      statusMsg.style.color = "red";
-    }
+    form.reset();
 
   } catch(err){
 
     console.error(err);
 
     statusMsg.innerHTML =
-    "❌ Submission failed: " + err.message;
+      "❌ Submission failed.";
 
     statusMsg.style.color = "red";
   }
