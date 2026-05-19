@@ -551,12 +551,17 @@ form.addEventListener("submit", async function(e){
   formData.forEach((value, key) => {
 
     if(json[key]){
+
       if(!Array.isArray(json[key])){
         json[key] = [json[key]];
       }
+
       json[key].push(value);
+
     } else {
+
       json[key] = value;
+
     }
 
   });
@@ -569,9 +574,10 @@ form.addEventListener("submit", async function(e){
   try {
 
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzTa_XNKWT8wUawzDnn4GVNvOdSZ8KjPz-AanP1sqIH29WDwxxmS5x2iq1t4LpXVsDe/exec",
+      "YOUR_APPS_SCRIPT_URL",
       {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json"
         },
@@ -579,20 +585,12 @@ form.addEventListener("submit", async function(e){
       }
     );
 
-    const text = await response.text();
-
-    let result;
-
-    try {
-      result = JSON.parse(text);
-    } catch(parseError) {
-      throw new Error("Invalid server response: " + text);
-    }
+    const result = await response.json();
 
     if(result.result === "success"){
 
       statusMsg.innerHTML =
-        "✅ Questionnaire submitted successfully!";
+      "✅ Submitted successfully!";
 
       statusMsg.style.color = "green";
 
@@ -601,19 +599,19 @@ form.addEventListener("submit", async function(e){
     } else {
 
       statusMsg.innerHTML =
-        "❌ " + result.message;
+      "❌ " + result.message;
 
       statusMsg.style.color = "red";
     }
 
   } catch(err){
 
+    console.error(err);
+
     statusMsg.innerHTML =
-      "❌ Submission failed: " + err.message;
+    "❌ Submission failed: " + err.message;
 
     statusMsg.style.color = "red";
-
-    console.error(err);
   }
 
 });
